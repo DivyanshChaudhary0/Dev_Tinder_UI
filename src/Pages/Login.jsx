@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/UserSlice";
+import {BASE_URL} from "../utils/Constants"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/login",
+        BASE_URL + "/login",
         { email, password },
         {
           withCredentials: true,

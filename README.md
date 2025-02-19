@@ -6,3 +6,5 @@
 - Install Tailwind css
 - Install DaisyUI
 - Add Navbar component
+- Make login Page
+- Install redux and make store , configure and provide it
