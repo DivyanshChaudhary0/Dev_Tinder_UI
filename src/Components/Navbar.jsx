@@ -1,13 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+
+  const user = useSelector((store)=> store.user)
+  console.log(user);
+  
+
   return (
     <div className="navbar bg-gray-800 text-white px-10 py-4">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl"> 🧑‍💻 DevTinder</a>
       </div>
-      <div className="flex-none text-black">
-        <div className="dropdown dropdown-end">
+      {
+        user && 
+      <div className="flex-none text-black flex items-center gap-4 text-white">
+        <div> Welcome, {user?.username}</div>
+        <div className="dropdown dropdown-end text-black">
           <div
             tabIndex={0}
             role="button"
@@ -16,7 +25,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src={user.photoURL}
               />
             </div>
           </div>
@@ -39,6 +48,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      }
     </div>
   );
 };
