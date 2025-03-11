@@ -16,16 +16,9 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        BASE_URL + "/login",
-        { email, password },
-        {
-          withCredentials: true,
-        }
-      );
+      const res = await axios.post(BASE_URL + "/login", { email, password },{ withCredentials: true });
       dispatch(addUser(res.data.user))
       navigate("/")
-      console.log(res);
     } catch (err) {
       console.log(err);
       setError(err?.response?.data?.message);
@@ -96,8 +89,8 @@ const Login = () => {
                 required
                 placeholder="Password"
                 minLength="6"
-                pattern="(?=.*[a-z])).{6,}"
-                title="Must be more than 6 characters, including number, lowercase letter, uppercase letter"
+                pattern="([a-z])).{6}"
+                title="Must be more than 6 characters, including number, lowercase letter"
               />
             </label>
             <p className="validator-hint hidden">
@@ -106,8 +99,6 @@ const Login = () => {
               At least one number
               <br />
               At least one lowercase letter
-              <br />
-              At least one uppercase letter
             </p>
           </div>
 
