@@ -20,7 +20,7 @@ router.post("/login",async function(req,res){
             })
         }
 
-        const user = await userModel.findOne({email})
+        const user = await userModel.findOne({email}).select("+password")
 
         if(!user){
             return res.status(400).json({
@@ -35,6 +35,8 @@ router.post("/login",async function(req,res){
                 message: "Invalid email or password"
             })
         }
+
+        delete user._doc.password;
 
         const token = user.generateToken();
 

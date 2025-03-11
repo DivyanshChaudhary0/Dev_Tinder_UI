@@ -1,14 +1,9 @@
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
-
+import { useLocation} from "react-router-dom";
 
 const UserCard = ({feed}) => {
 
     const {username,gender,age,photoURL,about} = feed;
     const { pathname}  = useLocation();
-    console.log(pathname);
-    
-    
-    
 
   return (
     <div className="card bg-base-100 md:w-96 md:h-[480px] h-[380px] shadow-sm">
