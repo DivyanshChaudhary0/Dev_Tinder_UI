@@ -24,9 +24,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-gray-800 text-white px-10 py-4">
+    <div className="navbar bg-gray-800 text-white px-4 md:px-10 py-4">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl"> 🧑‍💻 DevTinder</a>
+        <Link to="/" className="btn btn-ghost  md:px-4 px-2 md:text-xl"> 🧑‍💻 DevTinder</Link>
       </div>
       {
         user && 

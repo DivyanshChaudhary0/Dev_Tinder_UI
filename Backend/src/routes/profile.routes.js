@@ -21,7 +21,7 @@ router.get("/", userAuth ,function(req,res){
 router.patch("/edit", userAuth , async function(req,res){
     try{
         const updates = Object.keys(req.body)
-        const allowedFields = ["age","photoURL","skills","about","gender"]
+        const allowedFields = ["username","age","photoURL","skills","about","gender"]
         const invalidFields = updates.filter((field)=> !allowedFields.includes(field))
         
         if (invalidFields.length > 0) {
