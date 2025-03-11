@@ -6,10 +6,10 @@ import { Outlet } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div>
+    <div className='w-full min-h-screen'>
         <Navbar/>
         <Outlet/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }
