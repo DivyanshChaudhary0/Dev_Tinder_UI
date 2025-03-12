@@ -1,2 +1,0 @@
-
-## DEV TINDER API'S
