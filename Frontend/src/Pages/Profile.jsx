@@ -9,7 +9,7 @@ const Profile = () => {
   return(
     <>
       {
-      user && <Edit_Profile  user={user} />
+        user && <Edit_Profile  user={user} />
       }
     </>
   )

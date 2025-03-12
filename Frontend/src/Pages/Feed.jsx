@@ -21,9 +21,13 @@ const Feed = () => {
     })
   },[])
 
+  if(!feed) return;
+
+  if(feed.length <= 0) return <h1 className='my-20 text-center text-xl'>No more users found...</h1>
+
   return (
     <div className='w-full flex items-center justify-center my-10'>
-      { feed && <UserCard feed={feed[0]} /> }
+      { feed && <UserCard user={feed[0]} /> }
     </div>
   )
 }

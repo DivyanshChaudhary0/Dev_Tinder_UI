@@ -69,7 +69,7 @@ const Edit_Profile = ({user}) => {
   
         </div>
         <div className='flex items-center justify-center px-4'>
-          <UserCard feed={{username,age,about,gender,photoURL}} />
+          <UserCard user={{username,age,about,gender,photoURL}} />
         </div>
         <ToastContainer
           autoClose={1000}
