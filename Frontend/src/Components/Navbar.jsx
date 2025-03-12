@@ -16,10 +16,6 @@ const Navbar = () => {
     .then((res)=>{
       dispatch(removeUser())
       navigate("/login")
-      console.log(res);
-    })
-    .catch((err)=>{
-      console.log(err);
     })
   }
 
@@ -56,7 +52,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/settings"> Settings</Link>
+              <Link to="/connections"> Connections</Link>
+            </li>
+            <li>
+              <Link to="/requests"> Requests</Link>
             </li>
             <li>
               <Link onClick={handleLogout}> Logout </Link>

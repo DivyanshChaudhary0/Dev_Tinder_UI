@@ -10,7 +10,7 @@ router.get("/requests/receive", userAuth , async function(req,res){
         const requests = await connectionModel.find({
             toUserId: user._id,
             status: "interested" 
-        }).populate("fromUserId",["username","photoURL"])
+        }).populate("fromUserId",["username","photoURL","about"])
 
         res.status(200).json({
             message: "data fetched successfully",
@@ -33,8 +33,8 @@ router.get("/connections", userAuth , async function(req,res){
                 { toUserId: user._id, status: "accepted"}
             ]
         })
-        .populate("fromUserId",["username","photoURL"])
-        .populate("toUserId",["username","photoURL"])
+        .populate("fromUserId",["username","photoURL","about"])
+        .populate("toUserId",["username","photoURL","about"])
 
         const data = connections.map((row)=>{
             if(row.fromUserId._id.toString() === user._id.toString()){

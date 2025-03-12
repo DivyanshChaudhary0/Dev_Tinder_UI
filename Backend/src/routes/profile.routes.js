@@ -65,7 +65,6 @@ router.patch("/password", userAuth ,async function(req,res){
             })
         }
         const user = req.user;
-        console.log(currentPassword);
         
         const isMatched = await bcrypt.compare(currentPassword,user.password);
         if(!isMatched){

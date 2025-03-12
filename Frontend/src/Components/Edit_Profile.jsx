@@ -25,11 +25,9 @@ const Edit_Profile = ({user}) => {
       .then((res)=>{
         dispatch(addUser(res.data.user))
         notify();
-        console.log(res);
       })
       .catch((err)=>{
         setError(err.response.data.error)
-        console.log(err);
       })
     }
   

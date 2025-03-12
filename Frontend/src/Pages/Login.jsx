@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../utils/UserSlice";
 import {BASE_URL} from "../utils/Constants"
 
@@ -14,13 +14,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
+    setError("");
     e.preventDefault();
     try {
       const res = await axios.post(BASE_URL + "/login", { email, password },{ withCredentials: true });
       dispatch(addUser(res.data.user))
       navigate("/")
     } catch (err) {
-      console.log(err);
       setError(err?.response?.data?.message || err.message);
     }
   }
@@ -100,6 +100,10 @@ const Login = () => {
               <br />
               At least one lowercase letter
             </p>
+          </div>
+
+          <div className="w-full">
+            <p className="font-semibold text-left">Already have an account? <Link to="/register" className="text-blue-600"> Sign In </Link></p>
           </div>
 
           <button className="bg-blue-500 hover:bg-blue-600 transition text-white px-8 py-2 rounded font-medium mt-4">
