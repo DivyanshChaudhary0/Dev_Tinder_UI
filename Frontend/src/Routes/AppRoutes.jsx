@@ -8,6 +8,7 @@ import Protected from "../Components/Protected";
 import Connections from "../Pages/Connections";
 import Requests from "../Pages/Requests";
 import Register from "../Pages/Register";
+import Chats from "../Pages/Chats";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/connections" element={<Connections/>} />
           <Route path="/requests" element={<Requests/>} />
+          <Route path="/chats/:userId" element={<Chats/>} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
