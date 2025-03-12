@@ -53,8 +53,8 @@ const Edit_Profile = ({user}) => {
             </select>
           </div>
           <div className="input-group w-full flex flex-col gap-1 mb-4">
-            <label htmlFor="gender">About</label>
-            <textarea id='gender' onChange={(e)=> setAbout(e.target.value)} className='px-4 py-2 rounded' placeholder='Enter gender'>{about}</textarea>
+            <label htmlFor="about">About</label>
+            <textarea id='about' value={about} onChange={(e)=> setAbout(e.target.value)} className='px-4 py-2 rounded' placeholder='Enter about yourself...'>{about}</textarea>
           </div>
           <div className="input-group w-full flex flex-col gap-1 mb-4">
             <label htmlFor="photoURL">Profile Image</label>

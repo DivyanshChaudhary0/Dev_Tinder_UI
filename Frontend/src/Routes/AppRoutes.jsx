@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Protected from "../Components/Protected";
 import Connections from "../Pages/Connections";
 import Requests from "../Pages/Requests";
+import Register from "../Pages/Register";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
           <Route path="/requests" element={<Requests/>} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register/>} />
       </Routes>
     </>
   );

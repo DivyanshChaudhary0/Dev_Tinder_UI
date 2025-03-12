@@ -57,7 +57,7 @@ router.post("/login",async function(req,res){
 
 router.post("/register",async function(req,res){
     try{
-        const {username,email,password,age,gender,skills,about,photoURL,} = req.body;
+        const {username,email,password,age,gender,skills,about} = req.body;
         const hashed = await userModel.hashPassword(password)
         const user = await userModel.create({
             username,
@@ -65,15 +65,18 @@ router.post("/register",async function(req,res){
             password: hashed,
             age,
             gender,
-            skills,
+            skills: skills ? skills : [],
             about,
-            photoURL
         })
 
         const token = user.generateToken();
 
+        delete user._doc.password
+
         res.cookie("token",token)
-        res.send("user created successfully")
+        res.status(201).json({
+            user
+        })
     }
     catch(err){
         res.status(400).json({

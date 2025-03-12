@@ -16,7 +16,7 @@ const Requests = () => {
         .catch((err)=>{
             setError(err.response.data)
         })
-    },[handleRequest])
+    },[])
 
     function handleRequest(status,_id){
         axios.post(BASE_URL + `/request/review/${status}/${_id}`,{},{withCredentials:true})
@@ -33,9 +33,7 @@ const Requests = () => {
     </div>
 
     if(requests.length <= 0){
-        return <div className='my-20 flex items-center justify-center text-red-500 font-semibold text-xl'>
-        <p>No request found...!</p>
-        </div>
+        return <p className='text-center my-20 text-xl'>No request found...!</p>
     }
 
   return (

@@ -18,7 +18,7 @@ const Connections = () => {
         })
     },[])
 
-    if(connections.length <= 0) return <h1>No connections found...!</h1>
+    if(connections.length <= 0) return <h1 className='text-center my-20 text-xl'>No connections found...!</h1>
 
   return (
     <div className='px-4'>
