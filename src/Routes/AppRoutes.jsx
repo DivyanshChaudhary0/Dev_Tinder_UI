@@ -19,7 +19,7 @@ const AppRoutes = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/connections" element={<Connections/>} />
           <Route path="/requests" element={<Requests/>} />
-          <Route path="/chats/:userId" element={<Chats/>} />
+          <Route path="/chats/:targetUserId" element={<Chats/>} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />

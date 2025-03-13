@@ -58,9 +58,9 @@ const Requests = () => {
                             <p className='text-xs md:text-base'>{about}</p>
                         </div>
                     </div>
-                    <div className='w-[30%] flex flex-wrap gap-4'>
-                        <button  onClick={()=> handleRequest("rejected",request._id)} className="btn btn-primary mx-2 text-xs p-2">Reject</button>
-                        <button onClick={()=> handleRequest("accepted",request._id)} className="btn btn-secondary mx-2 text-xs p-2">Accept</button>
+                    <div className='w-[30%] flex flex-wrap gap-2'>
+                        <button  onClick={()=> handleRequest("rejected",request._id)} className="btn btn-primary mx-2 text-xs py-0 px-4">Reject</button>
+                        <button onClick={()=> handleRequest("accepted",request._id)} className="btn btn-secondary mx-2 text-xs py-0 px-4">Accept</button>
                     </div>
                 </div>
             )})

@@ -27,7 +27,7 @@ const Navbar = () => {
       {
         user && 
       <div className="flex-none flex items-center gap-4 text-white">
-        <div> Welcome, {user?.username}</div>
+        <div className="text-xs w-24"> Welcome, {user?.username}</div>
         <div className="dropdown dropdown-end text-black">
           <div
             tabIndex={0}
