@@ -103,7 +103,7 @@ const Login = () => {
           </div>
 
           <div className="w-full">
-            <p className="font-semibold text-left">Already have an account? <Link to="/register" className="text-blue-600"> Sign In </Link></p>
+            <p className="font-semibold text-left">New User? <Link to="/register" className="text-blue-600"> Sign In </Link></p>
           </div>
 
           <button className="bg-blue-500 hover:bg-blue-600 transition text-white px-8 py-2 rounded font-medium mt-4">
