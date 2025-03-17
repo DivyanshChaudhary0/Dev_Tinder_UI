@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { BASE_URL } from '../utils/Constants';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/UserSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -26,11 +26,11 @@ const Register = () => {
         .then((res)=>{
             console.log(res);
             dispatch(addUser(res.data.user))
-            navigate("/")
+            navigate("/profile")
         })
         .catch((err)=>{
             console.log(err);
-            setError(err.response.data.message)
+            setError(err.response.data.message || err.response.data.errors[0].msg)
         })
     }
 
@@ -88,20 +88,9 @@ const Register = () => {
                         required
                     />
                 </div>
-                <div className='input-group w-full'>
-                    <label htmlFor="gender">Gender: </label>
-                    <select id='gender' onChange={(e)=> setGender(e.target.value)}  className='mx-2 w-2/3 px-4 py-2 rounded bg-gray-400 text-white'>
-                        <option value="male"> male </option>
-                        <option value="female"> female </option>
-                        <option value="other"> other </option>
-                    </select>
-                </div>
-                <div className="input-group w-full flex flex-col gap-1 mb-4">
-                    <label htmlFor="about">About</label>
-                    <textarea required id='about' value={about} onChange={(e)=> setAbout(e.target.value)} className='px-4 py-2 rounded' placeholder='Enter about yourself'>{about}</textarea>
-                </div>
+                <Link to="/login" className='font-semibold'>Already have an account? <span className='text-blue-600'>Login</span></Link>
                 {error && <p className='text-red-500 font-semibold'>{error}</p>}
-                <button className='bg-blue-500 hover:bg-blue-600 cursor-pointer py-2 rounded-3xl text-white'>Submit</button>
+                <button className='bg-blue-500 font-semibold hover:bg-blue-600 cursor-pointer py-2 rounded-3xl text-white'>Submit</button>
             </form>
         </section>
     </main>
