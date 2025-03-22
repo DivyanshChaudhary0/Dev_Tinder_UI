@@ -28,7 +28,7 @@ const Chats = () => {
 
     tempSocket.on("offline", function(data){
         setOnline("offline");
-        setLastSeen(data);
+        setLastSeen("Last seen at " + data);
     })
 
     tempSocket.on("receiveMessage", ({ text, username, time }) => {
@@ -65,7 +65,7 @@ const Chats = () => {
             <div>
               <p>{targetUserData?.username}</p>
               <p className="text-xs font-semibold">
-                {online === "online" ? "Online" : "Last seen " + lastSeen}
+                {online === "online" ? "Online" : lastSeen}
               </p>
             </div>
           </div>
