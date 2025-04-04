@@ -21,7 +21,7 @@ const Edit_Profile = ({user}) => {
     const notify = () => toast("profile updated successfully...!"); 
   
     function saveChanges(){
-      axios.patch(BASE_URL + "/profile/edit",{username,age,gender,about,photoURL},{withCredentials:true})
+      axios.put(BASE_URL + "/profile/edit",{username,age,gender,about,photoURL},{withCredentials:true})
       .then((res)=>{
         dispatch(addUser(res.data.user))
         notify();

@@ -30,9 +30,9 @@ const googleLogin = useGoogleLogin({
     onSuccess: (data) => {
       console.log(data);
       
-        axios.post(BASE_URL + "/google-login", {accessToken: data.access_token})
+        axios.post(BASE_URL + "/google-login", {accessToken: data.access_token},{withCredentials: true})
         .then((res) => {
-            dispatch(addUser(res.user))
+            dispatch(addUser(res.data.user))
             navigate("/")
             console.log(res);
         })
