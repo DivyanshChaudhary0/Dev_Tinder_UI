@@ -11,19 +11,16 @@ const Register = () => {
     const [username,setUsername] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    const [age,setAge] = useState("");
-    const [gender,setGender] = useState("male");
-    const [about,setAbout] = useState("");
-    const [error,setError] = useState("")
+    const [error,setError] = useState("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(username,email,password,age,gender,about);
-        axios.post(BASE_URL + "/register",{username,email,password,age,gender,about},{withCredentials:true})
-        .then((res)=>{
+        console.log(username,email,password);
+        axios.post(BASE_URL + "/register",{username,email,password},{withCredentials:true})
+        .then((res) => {
             console.log(res);
             dispatch(addUser(res.data.user))
             navigate("/profile")
@@ -72,18 +69,6 @@ const Register = () => {
                         value={password}
                         onChange={(e)=> setPassword(e.target.value)}
                         placeholder='Enter password'
-                        className='w-full px-4 py-2 rounded outline-0' 
-                        required
-                    />
-                </div>
-                <div className="input-group w-full">
-                    <label htmlFor="age">Age</label>
-                    <input 
-                        id='age' 
-                        type="text" 
-                        value={age}
-                        onChange={(e)=> setAge(e.target.value)}
-                        placeholder='Enter age'
                         className='w-full px-4 py-2 rounded outline-0' 
                         required
                     />

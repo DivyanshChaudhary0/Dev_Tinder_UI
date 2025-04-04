@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../utils/UserSlice";
 import {BASE_URL} from "../utils/Constants"
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,6 +25,25 @@ const Login = () => {
       setError(err?.response?.data?.message || err.message);
     }
   }
+
+const googleLogin = useGoogleLogin({
+    onSuccess: (data) => {
+      console.log(data);
+      
+        axios.post(BASE_URL + "/google-login", {accessToken: data.access_token})
+        .then((res) => {
+            dispatch(addUser(res.user))
+            navigate("/")
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+    onError: () => {
+        toast.error("Google login failed...!")
+    }
+})
 
   return (
     <main className="w-full h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -110,7 +130,7 @@ const Login = () => {
             Login
           </button>
 
-          <div className="btn bg-white text-black border-[#e5e5e5] mt-5">
+          <div onClick={googleLogin} className="btn bg-white text-black border-[#e5e5e5] mt-5">
             <svg
               aria-label="Google logo"
               width="16"
