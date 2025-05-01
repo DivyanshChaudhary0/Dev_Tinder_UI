@@ -12,7 +12,7 @@ const Feed = () => {
   const dispatch = useDispatch();
 
   useEffect(function(){
-    axios.get(BASE_URL + "/feed",{withCredentials:true})
+    axios.get(BASE_URL + "/feed",{ withCredentials:true })
     .then((res)=>{
       dispatch(addFeed(res.data.users))
     })
