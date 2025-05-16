@@ -15,7 +15,7 @@ import {io} from "socket.io-client"
 
 // export default socketConnection;
 
-export const BASE_URL = location.hostname === "localhost" ? "http://localhost:3000" : "https://dev-tinder-backend-yo3z.onrender.com";
+export const BASE_URL = location.hostname === "localhost" ? "http://localhost:3000" : "https://dev-tinder-backend-pem6.onrender.com";
 
 const socketConnection = () => {
     return io(BASE_URL);
